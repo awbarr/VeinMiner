@@ -79,6 +79,7 @@ public class PacketClientPresent implements IMessage {
 
             MinerServer minerServer = VeinMiner.instance.minerServer;
             minerServer.addClientPlayer(playerName);
+            
             switch (packetClientPresent.mode) {
                 case 3:
                     minerServer.setPlayerStatus(playerName, PlayerStatus.SNEAK_ACTIVE);
@@ -94,8 +95,9 @@ public class PacketClientPresent implements IMessage {
                 default:
                     minerServer.setPlayerStatus(playerName, PlayerStatus.INACTIVE);
             }
-
+            /*
             VeinMiner.instance.networkWrapper.sendTo(new PacketChangeMode(packetClientPresent.mode), player);
+            **/
         }
     }
 }
