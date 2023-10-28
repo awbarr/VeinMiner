@@ -73,6 +73,8 @@ public class PacketChangeMode implements IMessage {
             if(context.side == Side.CLIENT) {
                 VeinMiner.instance.currentMode = packetClientPresent.mode;
                 VeinMiner.instance.logger.info(String.format("Received mode change %d", packetClientPresent.mode));
+                /*
+                
                 switch(packetClientPresent.mode) {
                     case PreferredMode.DISABLED:
                     case PreferredMode.SNEAK_ACTIVE:
@@ -86,6 +88,7 @@ public class PacketChangeMode implements IMessage {
                         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentTranslation("command.veinminerc.set.released"));
                         break;
                 }
+                **/
             }
             else if (context.side == Side.SERVER) { // Server Side
                 EntityPlayerMP player = context.getServerHandler().playerEntity;
@@ -93,6 +96,7 @@ public class PacketChangeMode implements IMessage {
 
                 MinerServer minerServer = VeinMiner.instance.minerServer;
                 minerServer.addClientPlayer(playerName);
+                /*
                 switch(packetClientPresent.mode) {
                     case PreferredMode.DISABLED:
                     case PreferredMode.PRESSED:
@@ -110,6 +114,7 @@ public class PacketChangeMode implements IMessage {
                         break;
 
                 }
+                **/
             }
         }
     }
